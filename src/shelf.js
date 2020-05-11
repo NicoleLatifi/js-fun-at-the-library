@@ -5,9 +5,18 @@ function shelfBook(book, shelf) {
   }
 };
 
-function unshelfBook(book, shelf) {
-  var bookIndex = shelf.indexOf(book);
-  shelf.splice(bookIndex-1, 1); //I don't know why it works with -1
+
+function unshelfBook(bookTitle, shelf) {
+  if (shelf[0].title === bookTitle) {
+    var bookIndex = shelf.indexOf(shelf[0]);
+    shelf.splice(bookIndex, 1);
+  } else if (shelf[1].title === bookTitle) {
+   var bookIndex = shelf.indexOf(shelf[1]);
+    shelf.splice(bookIndex, 1);
+  } else if (shelf[2].title === bookTitle) {
+    var bookIndex = shelf.indexOf(shelf[2]);
+    shelf.splice(bookIndex, 1);
+  }
 };
 
 function listTitles(shelf) {
@@ -16,12 +25,7 @@ function listTitles(shelf) {
 };
 
 function searchShelf(shelf, bookTitle) {
-  var bookTitles = []
-  bookTitles.push(shelf[0].title);
-  bookTitles.push(shelf[1].title);
-  // make array that has each scifiShelf.title
-
-  if (bookTitles.indexOf(bookTitle) === 1) {
+  if (shelf[shelf.length-1].title.includes(bookTitle)) {
     return true;
   } else {
     return false;
