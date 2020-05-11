@@ -1,5 +1,5 @@
-function createTitle(workingTitle) {
-  return "The " + workingTitle;
+function createTitle(bookIdea) {
+  return "The " + bookIdea;
 };
 
 function buildMainCharacter(name, age, pronouns) {
@@ -11,7 +11,7 @@ function buildMainCharacter(name, age, pronouns) {
 };
 
 function saveReview(bookReview, reviews) {
-  var isNewReview = reviews.indexOf(bookReview) === -1
+  var isNewReview = reviews.indexOf(bookReview) === -1;
   if (isNewReview) {
     return reviews.push(bookReview);
   }
@@ -32,9 +32,9 @@ function writeBook(bookTitle, bookCharacter, bookGenre) {
   return bookObject;
 };
 
-function editBook(ghoulBook) {
-  ghoulBook.pageCount = ghoulBook.pageCount * 3/4;
-  return ghoulBook.pageCount
+function editBook(bookObject) {
+  bookObject.pageCount = bookObject.pageCount * 3/4;
+  return bookObject.pageCount;
 }
 
 module.exports = {
